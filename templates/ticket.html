@@ -1,0 +1,27 @@
+<div id="ticket_modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md">
+    <!-- Event Title -->
+    <h2 class="text-xl font-bold mb-4">{{event.eventName}}</h2>
+
+    <!-- Event Date -->
+    <div class="mb-4">
+      <span class="text-gray-700">{{event.eventDate}}</span>
+    </div>
+
+    <!-- Tickets List -->
+    <div class="space-y-2 mb-4">
+      {% for ticket in tickets %}
+      <a href="/ticket/{{ticket.id}}">
+        <div class="bg-gray-100 p-3 rounded-lg">
+          <span class="text-gray-700">Ticket {{loop.index}} {{ticket.ticketPath}}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Close Button -->
+    <div class="flex justify-end">
+      <button onclick="closeTicketModal()" id="closeTicketModal" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Close</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<h2 class="text-xl font-semibold mb-4">Events</h2>
+<div class="space-y-2">
+  {% for event in events %}
+  <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg"
+       hx-get="/event/{{event.id}}"
+       hx-target="#ticket_modal"
+       hx-swap="outerHTML"
+       hx-trigger="click">
+    <span class="text-gray-700">{{ event.eventDate }} - {{ event.eventName }}</span>
+  </div>
+
+  {% endfor %}
+</div>
